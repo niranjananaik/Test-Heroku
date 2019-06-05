@@ -28,7 +28,7 @@ public class AppController {
 		return "Hello World!";
 	}
 	
-	@RequestMapping(value = "webhook", method = RequestMethod.GET)
+	@RequestMapping(value = "/webhook", method = RequestMethod.GET)
 	public ClientIDTest getWebhookGET(@RequestHeader("X-AdobeSign-ClientId") String xAdobeSignClientId) {
 		// ClientId getWebhookGET() {
 		ClientIDTest clientId = new ClientIDTest();
@@ -39,7 +39,7 @@ public class AppController {
 		return clientId;
 	}
 
-	@RequestMapping(value = "webhook", method = RequestMethod.POST)
+	@RequestMapping(value = "/webhook", method = RequestMethod.POST)
 	public ClientIDTest getWebhookPostEvent(@RequestHeader("X-AdobeSign-ClientId") String xAdobeSignClientId,
 			@RequestBody Object object) throws IOException {
 		System.out.println("POST method " + xAdobeSignClientId);
