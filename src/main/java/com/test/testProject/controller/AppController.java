@@ -40,12 +40,12 @@ public class AppController {
 	}
 
 	@RequestMapping(value = "/webhook", method = RequestMethod.POST)
-	public ClientIDTest getWebhookPostEvent(@RequestHeader("X-AdobeSign-ClientId") String xAdobeSignClientId,
+	public Object getWebhookPostEvent(@RequestHeader("X-AdobeSign-ClientId") String xAdobeSignClientId,
 			@RequestBody Object object) throws IOException {
 		System.out.println("POST method " + xAdobeSignClientId);
 		System.out.println("output:" + object);
 		logger.info("test");
 		logger.info(object);
-		return (ClientIDTest) object;
+		return object;
 	}
 }
