@@ -5,6 +5,7 @@ package com.test.testProject.controller;
 
 import java.io.IOException;
 
+import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,7 @@ import com.test.testProject.model.ClientIDTest;
  */
 @RestController
 public class AppController {
-	
+	private Logger logger = Logger.getLogger(this.getClass());
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public String test() {
 		return "Hello World!";
@@ -34,6 +35,7 @@ public class AppController {
 		// clientId.setxAdobeSignClientId("CBJCHBCAABAAVAMhAcHcH-oyVVAzsdm8qelsEg2N__ZA");
 		clientId.setxAdobeSignClientId(xAdobeSignClientId);
 		System.out.println("GET Mehtod:" + clientId.getxAdobeSignClientId());
+		logger.info("test");
 		return clientId;
 	}
 
@@ -42,6 +44,8 @@ public class AppController {
 			@RequestBody Object object) throws IOException {
 		System.out.println("POST method " + xAdobeSignClientId);
 		System.out.println("output:" + object);
+		logger.info("test");
+		logger.info(object);
 		return (ClientIDTest) object;
 	}
 }
